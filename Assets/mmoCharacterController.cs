@@ -71,7 +71,7 @@ public class mmoCharacterController : MonoBehaviour {
         if (Input.GetAxis("Vertical") > 0 || Input.GetAxis("Vertical") < 0)
         {
             //Quaternion turnAngle = Quaternion.Euler(0, centerPoint.eulerAngles.y, 0);
-            playerCam.LookAt(character);
+
             //character.rotation = Quaternion.Slerp(centerPoint.localRotation, character.rotation, Time.deltaTime * rotationSpeed);
         }
     }
