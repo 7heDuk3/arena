@@ -1,12 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "arenaGame", "arenaGame.csproj", "{A9A87683-7457-E9B6-79B4-F4116E7F7D44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9A87683-7457-E9B6-79B4-F4116E7F7D44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9A87683-7457-E9B6-79B4-F4116E7F7D44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9A87683-7457-E9B6-79B4-F4116E7F7D44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9A87683-7457-E9B6-79B4-F4116E7F7D44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
