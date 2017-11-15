@@ -512,7 +512,7 @@ MonoBehaviour:
   playerCam: {fileID: 2090913569}
   character: {fileID: 211062979}
   centerPoint: {fileID: 1576166764}
-  mouseSensitivity: 10
+  mouseSensitivity: 5
   mouseYPosition: 2
   moveSpeed: 2
   moveBackMultiplier: 0.5
@@ -520,6 +520,7 @@ MonoBehaviour:
   zoomMin: -2
   zoomMax: -10
   rotationSpeed: 3
+  slerpSpeed: 50
 --- !u!81 &2090913571
 AudioListener:
   m_ObjectHideFlags: 0
