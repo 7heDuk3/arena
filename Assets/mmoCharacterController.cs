@@ -7,8 +7,8 @@ public class mmoCharacterController : MonoBehaviour {
     public Transform playerCam, character, centerPoint;
 
     private float mouseX, mouseY;
-    private bool mouseDown = false;
-    public float mouseSensitivity = 2f;
+    private bool mouseDownL = false;
+    public float mouseSensitivity = 5f;
     public float mouseYPosition = 1f;
 
     private float moveFB, rotateLR;
@@ -42,19 +42,23 @@ public class mmoCharacterController : MonoBehaviour {
 
         if (Input.GetMouseButton (0))
         {
-            mouseX += Input.GetAxis("Mouse X");
-            mouseY -= Input.GetAxis("Mouse Y");
-            mouseDown = true;
+            mouseX += Input.GetAxis("Mouse X") * mouseSensitivity;
+            mouseY -= Input.GetAxis("Mouse Y") * mouseSensitivity;
+            mouseDownL = true;
         }
         else
         {
-            mouseDown = false;
+            mouseX = centerPoint.eulerAngles.y;
+            mouseY = centerPoint.eulerAngles.x;
+            mouseDownL = false;
         }
 
         mouseY = Mathf.Clamp(mouseY, -60f, 60f);
         //playerCam.LookAt(centerPoint);
-        centerPoint.localRotation = Quaternion.Euler(mouseY, mouseX, 0);
-
+        if (mouseDownL)
+        {
+            centerPoint.localRotation = Quaternion.Euler(mouseY, mouseX, 0);
+        }
 
         if (Input.GetKey(KeyCode.A))
         {
@@ -79,7 +83,7 @@ public class mmoCharacterController : MonoBehaviour {
 
             //centerPoint.rotation = Quaternion.Euler(0, centerPoint.eulerAngles.y - rotationSpeed, 0);
             Quaternion turnAngle = Quaternion.Euler(0, character.eulerAngles.y, 0);
-            if (!mouseDown)
+            if (!mouseDownL)
             {
                 //centerPoint.position = new Vector3(character.position.x, character.position.y + mouseYPosition, character.position.z);
                 centerPoint.rotation = Quaternion.Slerp(centerPoint.rotation, character.rotation, Time.deltaTime * rotationSpeed);
@@ -93,7 +97,7 @@ public class mmoCharacterController : MonoBehaviour {
             character.GetComponent<CharacterController>().Move(movement * Time.deltaTime);
             centerPoint.position = new Vector3(character.position.x, character.position.y + mouseYPosition, character.position.z);
 
-            if (!mouseDown)
+            if (!mouseDownL)
             {
                 centerPoint.rotation = Quaternion.Slerp(centerPoint.rotation, character.rotation, /*Time.deltaTime **/ rotationSpeed);
             }
